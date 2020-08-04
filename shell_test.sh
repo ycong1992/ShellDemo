@@ -143,3 +143,27 @@ do
         break;
     fi
 done
+
+#Shell 函数
+function demoFun() { #function字符可隐藏
+    echo "shell func"
+    echo "arg1:$1"
+    echo "arg2:$2"
+    echo "arg3:$3"
+    return 101
+}
+demoFun 1 2 3
+echo "return value:$?" #打印返回值
+
+#输出重定向
+who > users #将命令的完整的输出重定向在用户文件中(users)
+echo "菜鸟教程：www.runoob.com" >> users #使用>直接覆盖，使用>>在文件末尾追加
+cat users #查看文件内容
+#输入重定向
+wc -l users #统计users文件的行数
+wc -l < users #将输入重定向到users文件
+
+#Shell 文件包含(操作执行外部脚本)
+touch test2.sh
+chmod +x test2.sh
+./test2.sh
